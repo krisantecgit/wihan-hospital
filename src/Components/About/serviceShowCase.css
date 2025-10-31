@@ -1,0 +1,646 @@
+.service-showcase {
+  position: relative;
+  margin: 32px 100px 0;
+}
+.service-showcase img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.service-btn-wrapper {
+  position: absolute;
+  width: 568px;
+  top: 49%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  margin-left: 10px;
+  color: var(--color-white);
+  font-family: var(--font-secondary);
+  text-align: left;
+}
+.physio {
+  top: 55%;
+  left: 24%;
+  width: 500px;
+  white-space: pre-line;
+}
+
+.physio h2 {
+  font-size: 56px !important;
+  text-align: left !important;
+}
+
+.radiology-serviceWrapper {
+  top: 48%;
+  left: 30%;
+  width: 572px;
+  white-space: pre-line;
+}
+
+.radiology-serviceWrapper h2 {
+  font-size: 56px !important;
+}
+
+.service-btn-wrapper h2 {
+  font-family: var(--font-secondary);
+  font-size: 40px;
+  font-weight: var(--font-weight-bold);
+  line-height: 110%;
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.service-btn-wrapper button {
+  width: 206px;
+  height: 48px;
+  font-size: 20px;
+  background-color: var(--color-btn);
+  color: var(--color-white);
+  border: 1px solid var(--color-white);
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.service-btn-wrapper button:hover {
+  transform: scale(1.05);
+}
+.caregiver-servicewrapper {
+  top: 50%;
+  left: 30%;
+  width: 560px;
+  white-space: pre-line;
+}
+.caregiver-servicewrapper h2 {
+  font-size: 56px !important;
+  margin-bottom: 24px;
+  text-align: left !important;
+}
+.baby-care-servicewrapper {
+  white-space: pre-line;
+  top: 49%;
+  left: 28%;
+}
+.baby-care-servicewrapper h2 {
+  text-align: left !important;
+  font-size: 56px !important;
+}
+.homenurse-servicewrapper {
+  top: 48%;
+  left: 25%;
+  width: 420px;
+}
+.homenurse-servicewrapper h2 {
+  font-size: 56px !important;
+  text-align: left !important;
+}
+.medicinehome-servicewrapper {
+  white-space: pre-line;
+  top: 48%;
+  left: 28%;
+}
+.medicinehome-servicewrapper h2 {
+  text-align: left !important;
+  font-size: 56px !important;
+}
+.medical-equ {
+  white-space: pre-line;
+  width: auto;
+  top: 48%;
+  left: 31%;
+}
+.medical-equ h2 {
+  text-align: left !important;
+  font-size: 56px !important;
+}
+.radiology-serviceWrapper h2 {
+  text-align: left !important;
+}
+@media (max-width: 1280px) {
+  .service-btn-wrapper {
+    top: 52%;
+    left: 34%;
+  }
+  .homenurse-servicewrapper {
+    top: 52%;
+    left: 27%;
+  }
+  .service-btn-wrapper h2 {
+    font-size: 40px;
+  }
+  .physio {
+    top: 52%;
+    left: 28%;
+  }
+
+  .radiology-serviceWrapper {
+    left: 32%;
+    top: 48%;
+  }
+  .radiology-serviceWrapper h2 {
+    text-align: left !important;
+    font-size: 50px !important ;
+  }
+  .service-showcase {
+    margin: 32px 60px 0;
+  }
+}
+@media (max-width: 1024px) {
+  .service-content {
+    margin: 32px 50px;
+  }
+
+  .service-showcase {
+    position: relative;
+    padding: 1px 10px 0px;
+  }
+
+  .service-content img {
+    width: 100%;
+  }
+
+  .service-btn-wrapper {
+    top: 55%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+  }
+
+  .service-btn-wrapper button {
+    width: 12.8rem;
+    height: 2.5rem;
+  }
+
+  .service-btn-wrapper h2 {
+    font-size: var(--font-size-4xxxl);
+    line-height: 120%;
+  }
+
+  .physio {
+    top: 50%;
+    left: 32%;
+    width: 460px;
+  }
+
+  .physio h2 {
+    font-size: var(--font-size-4xxxl) !important;
+    margin-bottom: 20px;
+  }
+
+  .radiology-serviceWrapper {
+    top: 46%;
+    left: 33%;
+    width: 475px;
+  }
+
+  .radiology-serviceWrapper h2 {
+    font-size: var(--font-size-4xxxl) !important;
+  }
+
+  .caregiver-servicewrapper {
+    top: 46%;
+    left: 34%;
+  }
+
+  .caregiver-servicewrapper h2 {
+    font-size: var(--font-size-4xxxl) !important;
+    margin-bottom: 20px;
+  }
+
+  .baby-care-servicewrapper {
+    white-space: pre-line;
+    top: 49%;
+    left: 31%;
+  }
+
+  .baby-care-servicewrapper h2 {
+    font-size: var(--font-size-4xxxl) !important;
+  }
+
+  .homenurse-servicewrapper {
+    top: 46%;
+    left: 31%;
+    width: 350px;
+  }
+
+  .homenurse-servicewrapper h2 {
+    font-size: var(--font-size-4xxxl) !important;
+  }
+
+  .medicinehome-servicewrapper {
+    top: 50%;
+    left: 26%;
+    width: 350px;
+  }
+
+  .medicinehome-servicewrapper h2 {
+    font-size: var(--font-size-4xxxl) !important;
+  }
+
+  .service-showcase {
+    position: relative;
+    margin: 20px 50px 0;
+  }
+
+  .medical-equ {
+    white-space: pre-line;
+    width: auto;
+    top: 48%;
+    left: 34%;
+  }
+
+  .medical-equ h2 {
+    font-size: var(--font-size-4xxxl) !important;
+  }
+}
+@media (max-width: 768px) {
+  .service-showcase {
+    padding: 30px 20px;
+  }
+
+  .service-content {
+    margin: 0;
+  }
+
+  .service-btn-wrapper {
+    width: 41%;
+    left: 30%;
+    top: 50%;
+    text-align: left;
+  }
+
+  .service-btn-wrapper h2 {
+    font-size: var(--font-size-3xxl);
+    line-height: 120%;
+    margin-bottom: 24px;
+    text-align: left;
+  }
+
+  .service-btn-wrapper button {
+    width: 150px;
+    height: 36px;
+    font-size: 15px;
+  }
+
+  .physio {
+    top: 52%;
+    left: 28%;
+    width: 340px;
+    white-space: pre-line;
+  }
+
+  .physio h2 {
+    font-size: var(--font-size-3xxl) !important;
+    margin-bottom: 20px;
+  }
+
+  .radiology-serviceWrapper {
+    top: 50%;
+    left: 35%;
+    width: 420px;
+  }
+
+  .radiology-serviceWrapper h2 {
+    font-size: var(--font-size-3xxl) !important;
+  }
+
+  .caregiver-servicewrapper {
+    top: 52%;
+    left: 24%;
+    width: auto;
+  }
+
+  .caregiver-servicewrapper h2 {
+    font-size: var(--font-size-3xxl) !important;
+    margin-bottom: 16px;
+    text-align: left !important;
+  }
+
+  .baby-care-servicewrapper {
+    white-space: pre-line;
+    top: 52%;
+    left: 28%;
+  }
+
+  .baby-care-servicewrapper h2 {
+    font-size: var(--font-size-3xxl) !important;
+    margin-bottom: 16px !important;
+  }
+
+  .homenurse-servicewrapper {
+    top: 52%;
+    left: 28%;
+    width: 280px;
+  }
+
+  .homenurse-servicewrapper h2 {
+    font-size: var(--font-size-3xxl) !important;
+  }
+
+  .medicinehome-servicewrapper {
+    top: 50%;
+    left: 28%;
+    width: 300px;
+    white-space: normal;
+  }
+
+  .medicinehome-servicewrapper h2 {
+    font-size: var(--font-size-3xxl) !important;
+  }
+
+  .service-showcase {
+    position: relative;
+    margin: 0;
+  }
+
+  .medical-equ {
+    white-space: pre-line;
+    width: auto;
+    top: 52%;
+    left: 32%;
+  }
+
+  .medical-equ h2 {
+    font-size: var(--font-size-3xxl) !important;
+  }
+}
+@media (max-width: 480px) {
+  .service-showcase {
+    padding: 20px 15px;
+  }
+
+  .service-btn-wrapper {
+    width: 55%;
+    left: 32%;
+    top: 52%;
+    height: 75%;
+    padding: 0.75rem;
+  }
+
+  .service-btn-wrapper h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .service-btn-wrapper button {
+    width: 110px;
+    height: 26px;
+    font-size: 14px;
+  }
+
+  .physio {
+    top: 48%;
+    left: 36%;
+
+    width: auto;
+  }
+
+  .physio h2 {
+    font-size: 22px !important;
+    margin-bottom: 4px;
+  }
+
+  .physio button {
+    width: 102px;
+    height: 26px;
+    font-size: 12px;
+  }
+
+  .radiology-serviceWrapper {
+    top: 58%;
+    left: 36%;
+    width: 290px;
+  }
+
+  .radiology-serviceWrapper h2 {
+    font-size: 20px !important;
+  }
+
+  .caregiver-servicewrapper {
+    top: 66%;
+    left: 28%;
+    width: auto;
+  }
+
+  .caregiver-servicewrapper h2 {
+    font-size: 22px !important;
+    margin-bottom: 16px;
+  }
+
+  .baby-care-servicewrapper {
+    top: 52%;
+    left: 30%;
+    width: auto;
+  }
+
+  .baby-care-servicewrapper h2 {
+    font-size: 22px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .homenurse-servicewrapper {
+    top: 64%;
+    left: 32%;
+    width: 214px;
+  }
+
+  .homenurse-servicewrapper h2 {
+    font-size: 22px !important;
+  }
+
+  .medicinehome-servicewrapper {
+    top: 50%;
+    left: 32%;
+    width: 250px;
+  }
+
+  .medicinehome-servicewrapper h2 {
+    font-size: 22px !important;
+  }
+
+  .medical-equ {
+    white-space: normal;
+    width: 290px;
+    top: 54%;
+    left: 36%;
+  }
+
+  .medical-equ h2 {
+    font-size: 22px !important;
+  }
+}
+@media (max-width: 395px) {
+  .service-btn-wrapper h2 {
+    font-size: var(--font-size-sm);
+    line-height: 120%;
+  }
+
+  .service-btn-wrapper {
+    top: 50%;
+    width: 52%;
+  }
+
+  .service-btn-wrapper h2 {
+    margin-bottom: 4px !important;
+  }
+
+  .service-btn-wrapper button {
+    width: 110px;
+    height: 26px;
+    font-size: 13px;
+  }
+
+  .physio {
+    top: 46%;
+    left: 36%;
+    width: auto;
+  }
+
+  .physio h2 {
+    font-size: 20px !important;
+    margin-bottom: 4px;
+  }
+
+  .radiology-serviceWrapper {
+    top: 58%;
+    left: 36%;
+    width: 234px;
+  }
+
+  .radiology-serviceWrapper h2 {
+    font-size: var(--font-size-lg) !important;
+  }
+
+  .caregiver-servicewrapper {
+    top: 66%;
+    left: 30%;
+    width: auto;
+  }
+
+  .caregiver-servicewrapper h2 {
+    font-size: 20px !important;
+    margin-bottom: 16px;
+  }
+
+  .baby-care-servicewrapper {
+    top: 52%;
+    left: 28%;
+    width: auto;
+  }
+
+  .baby-care-servicewrapper h2 {
+    font-size: 20px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .homenurse-servicewrapper {
+    top: 62%;
+    left: 32%;
+    width: 188px;
+  }
+
+  .homenurse-servicewrapper h2 {
+    font-size: 20px !important;
+  }
+
+  .medicinehome-servicewrapper {
+    top: 58%;
+    left: 38%;
+    width: 260px;
+  }
+
+  .medicinehome-servicewrapper h2 {
+    font-size: 20px !important;
+  }
+
+  .medical-equ {
+    white-space: normal;
+    width: auto;
+    top: 50%;
+    left: 36%;
+  }
+
+  .medical-equ h2 {
+    font-size: 20px !important;
+  }
+}
+@media (max-width: 325px) {
+  .service-btn-wrapper h2 {
+    font-size: 14px;
+  }
+
+  .service-btn-wrapper button {
+    width: 90px;
+    height: 26px;
+  }
+
+  .physio {
+    top: 45%;
+    left: 38%;
+    width: 220px;
+  }
+
+  .physio h2 {
+    font-size: 18px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .physio button {
+    height: 22px;
+  }
+
+  .radiology-serviceWrapper {
+    top: 58%;
+    left: 42%;
+  }
+
+  .radiology-serviceWrapper h2 {
+    font-size: 16px !important;
+  }
+
+  .caregiver-servicewrapper {
+    top: 62%;
+  }
+
+  .baby-care-servicewrapper {
+    top: 52%;
+    left: 32%;
+    width: auto;
+  }
+
+  .baby-care-servicewrapper h2 {
+    font-size: 18px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .homenurse-servicewrapper {
+    top: 62%;
+    left: 35%;
+    width: 180px;
+  }
+
+  .homenurse-servicewrapper h2 {
+    font-size: 18px !important;
+  }
+
+  .medicinehome-servicewrapper {
+    top: 60%;
+    left: 40%;
+    width: 216px;
+
+    padding: 0;
+  }
+
+  .medicinehome-servicewrapper h2 {
+    font-size: 18px !important;
+  }
+
+  .medical-equ {
+    white-space: normal;
+    width: auto;
+    top: 48%;
+    left: 34%;
+  }
+
+  .medical-equ h2 {
+    font-size: 16px !important;
+  }
+}

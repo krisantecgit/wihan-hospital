@@ -1,0 +1,35 @@
+.logo-sliders {
+  margin-top: clamp(25px, 5vw, 80px);
+}
+.logo-card {
+  position: relative;
+  padding: clamp(4px, 1vw, 10px);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-card img {
+  position: relative;
+  z-index: 3;
+  max-width: clamp(110px, 20vw, 286px);
+  height: auto;
+  object-fit: contain;
+
+  transition: transform 0.3s ease;
+}
+
+.logo-card img:hover {
+  transform: scale(1.05);
+}
+
+.slick-dots li button:before {
+  color: #1d808c;
+  font-size: clamp(7px, 1vw, 12px);
+}
+
+.slick-dots li.slick-active button:before {
+  color: #1d808c;
+}

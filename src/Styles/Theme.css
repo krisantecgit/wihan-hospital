@@ -1,0 +1,73 @@
+:root {
+  /* 🎨 Colors */
+  --color-primary: #1d808c;
+  --color-secondary: linear-gradient(180deg, #6779e3 22.68%, #754fa7 127.58%);
+  --color-tertiary: #285470;
+  --color-quaternary: #ebfefc;
+  --color-f4: #f4fbff;
+  --color-2d: #2d4d74;
+  --color-quinary: #f3fafa;
+  --color-8c: #8c97a2;
+  --color-ef: #efefef;
+  --color-cf: #cfcfcf;
+  --color-five: #494f51;
+  --color-seven-e: #7e8384;
+  --color-f5: #f5f5f5;
+  --color-light: #f6f8f9;
+  --color-light-smoke: #f3f5f7;
+  --color-f3: #f3f4f6;
+  --color-btn: #fdb900;
+  --color-text: #153948;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-e: #02233e;
+  --color-blue: #2563eb;
+  --color-gray: #494f51;
+  --color-gray-1: #747373;
+  --color-gray-2: #f9fafb;
+  --color-gray-3: #929394;
+  --color-gray-4: #e5e7eb;
+  --color-gray-5: #d1d5db;
+  --color-success: #3aaf3c;
+  --color-danger: #ff5454;
+  --color-warning: #ffc107;
+  --color-bf: #bfdbfe;
+  --color-thickGreen: #00c4a7;
+  --color-lightGreen: #f0fdfa;
+  --color-info: #17a2b8;
+  --color-lightDark: #e5e7eb;
+
+  /* 🔠 Fonts */
+  --font-primary: "Roboto", sans-serif;
+  --font-secondary: "Inter", sans-serif;
+  --font-size-xs: 12px;
+  --font-size-xxs: 13px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 30px;
+  --font-size-3xxl: 32px;
+  --font-size-4xl: 36px;
+  --font-size-4xxl: 44px;
+  --font-size-4xxxl: 42px;
+  --font-size-5xl: 48px;
+  --font-size-6xl: 60px;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 800;
+  --font-weight-extrabold: 900;
+
+  /* 📏 Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+}

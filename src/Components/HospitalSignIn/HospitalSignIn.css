@@ -1,0 +1,277 @@
+.bottom-container {
+  padding: 23px 102px 99px 102px;
+}
+.hospital-form-box {
+  background: var(--color-white);
+  padding: 32px 56px 40px 56px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin-top: 24px;
+}
+.hospital-form-box.repetable-basic {
+  height: 587px;
+  overflow-y: auto;
+}
+.hospital-form-box h2 {
+  font-size: var(--font-size-3xxl);
+  font-weight: var(--font-weight-bold);
+  font-family: var(--font-secondary);
+  color: var(--color-black);
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.hospital-formfill {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.hospital-group {
+  max-width: 529px;
+  width: 100%;
+}
+.hospital-group label {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  font-family: var(--font-secondary);
+  color: var(--color-black);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.hospital-group .resend {
+  float: right;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  font-family: var(--font-secondary);
+  color: var(--color-danger);
+  cursor: pointer;
+  border: none;
+  background-color: var(--color-white);
+}
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-normal);
+  font-family: var(--font-secondary);
+  color: var(--color-8c);
+  border: 0.5px solid var(--color-primary);
+  border-radius: 4px;
+}
+.css-1dimb5e-singleValue {
+  font-size: var(--font-size-lg) !important;
+  font-weight: var(--font-weight-normal);
+  font-family: var(--font-secondary);
+  color: var(--color-8c);
+}
+
+.hospital-buttons {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  align-items: center;
+}
+.error {
+  color: red;
+}
+sup {
+  color: red;
+}
+.hospital-buttons .previous {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-secondary);
+  color: var(--color-cf);
+  background-color: var(--color-ef);
+  cursor: pointer;
+
+  border: none;
+  padding: 13px 50px;
+  text-align: center;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+.hospital-buttons .previous:hover {
+  transform: scale(1.05);
+}
+.hospital-buttons .next {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-secondary);
+  color: var(--color-white);
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  text-align: center;
+  background-color: var(--color-btn);
+  padding: 13px 60px;
+
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.hospital-buttons .next:hover {
+  transform: scale(1.05);
+}
+.last-subtitle {
+  text-align: center;
+
+  margin-bottom: 30px;
+  color: var(--color-gray-1);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-normal);
+  font-family: var(--font-secondary);
+}
+.items-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.items-flex strong {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-secondary);
+  color: var(--color-gray-3);
+}
+.info-divider {
+  background: linear-gradient(to right, #4da3a4, #c8e1e2);
+  color: var(--color-white);
+  padding: 10px 15px;
+  border-radius: 20px 0 0 20px;
+  font-weight: bold;
+  margin: 20px 0;
+  width: 100%;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-secondary);
+}
+
+@media (max-width: 1280px) {
+  .bottom-container {
+    padding: 20px 60px 80px 60px;
+  }
+
+  .hospital-form-box {
+    padding: 28px 40px;
+  }
+
+  .hospital-formfill {
+    gap: 24px;
+  }
+
+  .hospital-buttons {
+    gap: 60px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .bottom-container {
+    padding: 20px 40px 60px 40px;
+  }
+
+  .hospital-formfill {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .hospital-form-box {
+    padding: 24px 32px;
+  }
+
+  .hospital-form-box h2 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .hospital-buttons {
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .items-flex strong {
+    font-size: var(--font-size-xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .bottom-container {
+    padding: 16px 24px;
+  }
+  .hospital-group label {
+    font-size: var(--font-size-base);
+  }
+  .hospital-form-box {
+    padding: 20px;
+  }
+
+  .hospital-form-box h2 {
+    font-size: var(--font-size-xl);
+  }
+
+  .hospital-buttons {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .hospital-buttons .previous,
+  .hospital-buttons .next {
+    width: 100%;
+    font-size: var(--font-size-lg);
+    padding: 12px 20px;
+  }
+
+  .items-flex {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .info-divider {
+    font-size: var(--font-size-xl);
+    border-radius: 12px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .bottom-container {
+    padding: 12px 16px;
+  }
+  .hospital-group label {
+    font-size: var(--font-size-sm);
+  }
+  .hospital-form-box {
+    padding: 16px;
+  }
+
+  .hospital-form-box h2 {
+    font-size: var(--font-size-lg);
+  }
+
+  input {
+    font-size: var(--font-size-base);
+    padding: 8px;
+  }
+
+  .hospital-buttons .previous,
+  .hospital-buttons .next {
+    font-size: var(--font-size-base);
+    padding: 10px;
+  }
+
+  .info-divider {
+    font-size: var(--font-size-base);
+    padding: 8px 10px;
+  }
+  .hospital-formfill {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .items-flex strong {
+    font-size: var(--font-size-lg);
+  }
+}

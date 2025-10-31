@@ -1,0 +1,140 @@
+.quick-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 24px;
+  background-color: var(--color-white);
+  font-family: var(--font-secondary);
+  box-shadow: 0px 0px 7px 0px #00000029;
+  border-radius: 8px;
+  margin-bottom: 132px;
+}
+.flex-quick {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: start;
+  padding: 16px;
+  background-color: var(--color-gray-2);
+}
+.flex-quick span {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-gray-3);
+}
+.flex-quick strong {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-black);
+}
+.quick-edit {
+  background-color: var(--color-lightDark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-black);
+  width: 40%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}
+
+@media (max-width: 1280px) {
+  .quick-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    padding: 20px;
+    margin-bottom: 100px;
+  }
+  .flex-quick {
+    padding: 14px;
+    gap: 6px;
+  }
+  .flex-quick span {
+    font-size: 0.95rem;
+  }
+  .flex-quick strong {
+    font-size: 1.05rem;
+  }
+  .quick-edit {
+    width: 45%;
+    font-size: 1rem;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .quick-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 18px;
+    margin-bottom: 80px;
+  }
+  .flex-quick {
+    padding: 12px;
+    gap: 5px;
+  }
+  .flex-quick span {
+    font-size: 0.9rem;
+  }
+  .flex-quick strong {
+    font-size: 1rem;
+  }
+  .quick-edit {
+    width: 50%;
+    font-size: 0.95rem;
+    padding: 7px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .quick-stats {
+    grid-template-columns: 1fr; 
+    gap: 14px;
+    padding: 16px;
+    margin-bottom: 60px;
+  }
+  .flex-quick {
+    padding: 10px;
+    gap: 4px;
+  }
+  .flex-quick span {
+    font-size: 0.85rem;
+  }
+  .flex-quick strong {
+    font-size: 0.95rem;
+  }
+  .quick-edit {
+    width: 70%;
+    font-size: 0.9rem;
+    padding: 6px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .quick-stats {
+    grid-template-columns: 1fr; 
+    gap: 12px;
+    padding: 12px;
+    margin-bottom: 40px;
+  }
+  .flex-quick {
+    padding: 8px;
+    gap: 3px;
+  }
+  .flex-quick span {
+    font-size: 0.8rem;
+  }
+  .flex-quick strong {
+    font-size: 0.9rem;
+  }
+  .quick-edit {
+    width: 100%;
+    font-size: 0.85rem;
+    padding: 5px;
+  }
+}

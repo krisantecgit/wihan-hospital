@@ -1,0 +1,18 @@
+.universal-button {
+  background-color: var(--color-btn);
+  color: var(--color-white);
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 15px 20px;
+  cursor: pointer;
+  max-width: 380px;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+}
+
+@media (max-width: 321px) {
+  .universal-button {
+    padding: 10px;
+    font-size: var(--font-size-sm);
+  }
+}

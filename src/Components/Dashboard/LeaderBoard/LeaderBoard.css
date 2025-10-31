@@ -1,0 +1,192 @@
+.leaderboard {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  padding: 24px;
+  background-color: var(--color-white);
+  font-family: var(--font-secondary);
+  box-shadow: 0px 0px 7px 0px #00000029;
+  border-radius: 8px;
+  margin-bottom: 132px;
+}
+.leaderboard-title {
+  display: flex;
+  align-items: start;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: 24px;
+  color: var(--color-black);
+}
+.trophy {
+  width: 20px;
+  margin-right: 8px;
+}
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.leaderboard-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-gray-2);
+  border-radius: 6px;
+  padding: 16px;
+  border: 1px solid transparent;
+}
+
+.leaderboard-item.highlight {
+  background: var(--color-lightGreen);
+  border: 1px solid var(--color-thickGreen);
+}
+
+.leaderboard-rank {
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-3);
+  margin-right: 24px;
+}
+
+.hospital-info {
+  flex: 1;
+}
+
+.hospital-name {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-black);
+}
+
+.leaderboard-progress-bar {
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  margin-top: 5px;
+  overflow: hidden;
+  width: 223px;
+}
+
+.leaderboard-progress-fill {
+  height: 100%;
+  background: var(--color-thickGreen);
+  border-radius: 4px;
+}
+
+.leaderboard-score {
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-lg);
+  color: var(--color-blue);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.medal {
+  width: 18px;
+}
+@media (max-width: 1280px) {
+  .leaderboard {
+    padding: 20px;
+    margin-bottom: 100px;
+  }
+  .leaderboard-title {
+    font-size: 1.1rem;
+  }
+  .leaderboard-rank {
+    margin-right: 16px;
+    font-size: 1rem;
+  }
+  .leaderboard-progress-bar {
+    width: 180px;
+  }
+  .leaderboard-score {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 1024px) {
+  .leaderboard {
+    padding: 18px;
+    margin-bottom: 80px;
+  }
+  .leaderboard-title {
+    font-size: 1rem;
+  }
+  .leaderboard-rank {
+    margin-right: 12px;
+    font-size: 0.95rem;
+  }
+  .leaderboard-progress-bar {
+    width: 160px;
+  }
+  .leaderboard-score {
+    font-size: 0.95rem;
+  }
+}
+@media (max-width: 768px) {
+  .leaderboard {
+    padding: 16px;
+    margin-bottom: 60px;
+  }
+  .leaderboard-title {
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.95rem;
+  }
+  .leaderboard-list {
+    gap: 12px;
+  }
+  .leaderboard-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px;
+  }
+  .leaderboard-rank {
+    margin-right: 0;
+  }
+  .leaderboard-progress-bar {
+    width: 100%;
+  }
+  .leaderboard-score {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 480px) {
+  .leaderboard {
+    padding: 12px;
+    margin-bottom: 40px;
+  }
+  .leaderboard-title {
+    font-size: 0.9rem;
+  }
+  .leaderboard-list {
+    gap: 8px;
+  }
+  .leaderboard-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px;
+  }
+  .leaderboard-rank {
+    font-size: 0.85rem;
+  }
+  .leaderboard-progress-bar {
+    width: 100%;
+  }
+  .leaderboard-score {
+    font-size: 0.85rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .trophy,
+  .medal {
+    width: 16px;
+  }
+}

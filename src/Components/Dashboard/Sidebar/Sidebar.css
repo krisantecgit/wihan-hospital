@@ -1,0 +1,131 @@
+.sidebar {
+  background-color: var(--color-white);
+  height: 100vh;
+  position: fixed;
+  top: 10%;
+  left: 0;
+  padding: 32px;
+  transition: transform 0.3s ease;
+  z-index: 100;
+}
+.sidebar.closed {
+  transform: translateX(-100%);
+}
+.sidebar-logo {
+  width: 166px;
+  height: 166px;
+  border: 4px solid #a7c0c1;
+  margin-bottom: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.sidebar-menu li {
+  border: 1px solid #f2f1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+  border-radius: 8px;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  font-family: var(--font-secondary);
+  color: var(--color-seven-e);
+}
+.sidebar-menu li:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  cursor: pointer;
+}
+.sidebar-menu li.active {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  /* font-weight: bold;
+  font-size: 1.05rem; */
+}
+
+@media (max-width: 1280px) {
+  .sidebar {
+    padding: 24px;
+    width: 220px;
+    top: 12%;
+  }
+}
+.sidebar-logo {
+  width: 120px;
+  height: 120px;
+  margin: 24px auto;
+}
+.sidebar-logo img {
+  width: 100px;
+}
+.sidebar-menu li {
+  font-size: 0.9rem;
+  padding: 5px;
+}
+/* .sidebar-menu li.active {
+  font-size: 1.02rem;
+} */
+
+@media (max-width: 1024px) {
+  .sidebar {
+    padding: 20px;
+    width: 200px;
+  }
+  .sidebar-logo {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+  }
+  .sidebar-menu li {
+    font-size: 0.9rem;
+    padding: 5px;
+  }
+}
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 16px;
+    width: 180px;
+    transform: translateX(-100%);
+    z-index: 1000;
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  .sidebar-logo {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 16px;
+  }
+  .sidebar-menu li {
+    font-size: 0.85rem;
+    padding: 4px;
+  }
+}
+@media (max-width: 480px) {
+  .sidebar {
+    width: 160px;
+    padding: 12px;
+  }
+  .sidebar-logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 12px;
+  }
+  .sidebar-menu li {
+    font-size: 0.8rem;
+    padding: 3px;
+  }
+}

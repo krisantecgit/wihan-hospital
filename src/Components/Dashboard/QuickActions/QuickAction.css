@@ -1,0 +1,75 @@
+.quick-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  background-color: var(--color-white);
+  padding: 32px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  font-family: var(--font-secondary);
+}
+.quick-actions h4 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-black);
+  font-family: var(--font-secondary);
+}
+.quick-actions button {
+  padding: 10px;
+  border: none;
+  font-size: var(--font-size-lg);
+  background-color: var(--color-white);
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: var(--font-weight-normal);
+  color: var(--color-gray);
+  border: 1px solid var(--color-btn);
+}
+.quick-actions button:hover {
+  background-color: var(--color-btn);
+  color: var(--color-white);
+  /* font-weight: var(--font-weight-bold); */
+}
+
+@media (max-width: 1280px) {
+  .quick-actions {
+    padding: 28px;
+    gap: 20px;
+  }
+  .quick-actions button {
+    font-size: 1rem;
+    padding: 9px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .quick-actions {
+    padding: 24px;
+    gap: 18px;
+  }
+  .quick-actions button {
+    font-size: 0.95rem;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .quick-actions {
+    padding: 20px;
+    gap: 16px;
+  }
+  .quick-actions button {
+    font-size: 0.9rem;
+    padding: 7px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quick-actions {
+    padding: 16px;
+    gap: 12px;
+  }
+  .quick-actions button {
+    font-size: 0.85rem;
+    padding: 6px;
+  }
+}
