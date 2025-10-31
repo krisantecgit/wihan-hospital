@@ -50,7 +50,7 @@ const Footer = () => {
                 <Link to="/about">About</Link>
               </li>
               <li onClick={handleLinkClick}>
-                <a href="https://wihan.in/" target="_blank">
+                <a href="https://staging.wihan.in/" target="_blank">
                   Services
                 </a>
               </li>

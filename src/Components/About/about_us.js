@@ -13,8 +13,8 @@ export const serviceShowcaseData = [
     paragraph: `Wihan brings trusted CarePreneurs and leading hospitals \n together to deliver care at your doorstep.`,
     buttonText1: "Book Home Care Now",
     buttonText2: "Join as CarePreneur",
-    buttonLink1: "https://wihan.in/",
-    buttonLink2: "https://provider.wihan.in/",
+    buttonLink1: "https://staging.wihan.in/",
+    buttonLink2: "https://staging-provider.wihan.in/",
   },
 ];
 
