@@ -27,8 +27,6 @@ const ContactInformation = forwardRef(({ form, setForm }, ref) => {
           value: s.id,
         }));
         setStateOptions(options);
-
-        // ✅ Preload from API if editing
         if (form.state && !form.state.value && typeof form.state === "object") {
           setForm((prev) => ({
             ...prev,

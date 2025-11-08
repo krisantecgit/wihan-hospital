@@ -11,13 +11,23 @@ import "./BasicInformation.css";
 const BasicInformation = forwardRef(({ form, setForm }, ref) => {
   const currentYear = new Date().getFullYear();
   const [errors, setErrors] = useState({});
+  const fileInputRef = useRef(null);
+  const [imagePreview, setImagePreview] = useState(null);
   const options = [
     { value: "Govt", label: "Govt" },
     { value: "Private", label: "Private" },
     { value: "Trust", label: "Trust" },
     { value: "Others", label: "Others" },
   ];
-
+  useEffect(() => {
+    if (form?.profile) {
+      if (typeof form.profile === "string") {
+        setImagePreview(form.profile);
+      } else {
+        setImagePreview(URL.createObjectURL(form.profile));
+      }
+    }
+  }, [form.profile]);
   useImperativeHandle(ref, () => ({
     validateBasicData: () => {
       let newErrors = {};
@@ -57,6 +67,19 @@ const BasicInformation = forwardRef(({ form, setForm }, ref) => {
     }
     setForm({ ...form, [name]: value });
   };
+  const handleDivClick = () => {
+    fileInputRef.current.click();
+  };
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setImagePreview(URL.createObjectURL(file));
+      setForm((prev) => ({
+        ...prev,
+        profile: file,
+      }));
+    }
+  };
 
   return (
     <>
@@ -88,8 +111,6 @@ const BasicInformation = forwardRef(({ form, setForm }, ref) => {
                 setForm((prev) => ({ ...prev, year_of_establishment: year }));
             }}
             placeholder="YYYY"
-            min="1900"
-            max={new Date().getFullYear()}
           />
           {errors.year_of_establishment && (
             <span className="error">{errors.year_of_establishment}</span>
@@ -178,6 +199,27 @@ const BasicInformation = forwardRef(({ form, setForm }, ref) => {
           {errors.contact_no && (
             <span className="error">{errors.contact_no}</span>
           )}
+        </div>
+        <div className="repeat-group">
+          <label>Upload Hospital / Diagnostic Centre Image</label>
+          <div className="hospital-image" onClick={handleDivClick}>
+            {imagePreview ? (
+              <img src={imagePreview} alt="Hospital" />
+            ) : (
+              <>
+                <span>Click to Upload</span>
+                <HiOutlineUpload size={24} />
+              </>
+            )}
+
+            <input
+              type="file"
+              accept="image/*"
+              ref={fileInputRef}
+              style={{ display: "none" }}
+              onChange={handleFileChange}
+            />
+          </div>
         </div>
       </form>
     </>

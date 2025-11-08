@@ -41,6 +41,7 @@ const HospitalSignIn = () => {
     designation: "",
     contact_no: "",
     door_no: "",
+    profile: null,
     landmark: "",
     area: "",
     state: "",
@@ -116,7 +117,7 @@ const HospitalSignIn = () => {
             );
             if (res?.data?.results?.length > 0) {
               setForm(res.data.results[0]);
-             
+
               if (res?.data?.results[0]?.profile_completed) {
                 navigate(`/dashboard/${user_id}`);
               }
@@ -166,18 +167,33 @@ const HospitalSignIn = () => {
         }
         if (!valid) return;
         try {
+          const formDataToSend = new FormData();
+          formDataToSend.append("name", form.name || "");
+          if (form.year_of_establishment)
+            formDataToSend.append(
+              "year_of_establishment",
+              Number(form.year_of_establishment)
+            );
+
+          if (form.bed_strength)
+            formDataToSend.append("bed_strength", Number(form.bed_strength));
+          formDataToSend.append("registered_with", form.registered_with || "");
+          formDataToSend.append("registration_no", form.registration_no || null);
+          formDataToSend.append("md_ceo_chairman", form.md_ceo_chairman || "");
+          formDataToSend.append("designation", form.designation || "");
+
+          if (form.contact_no)
+            formDataToSend.append("contact_no", form.contact_no);
+
+          if (form?.profile instanceof File) {
+            formDataToSend.append("profile", form.profile);
+          }
+
           const response = await axiosConfig.patch(
             `/hospital/hospitals/${form.id}/`,
+            formDataToSend,
             {
-              name: form.name,
-              year_of_establishment: form.year_of_establishment,
-              bed_strength: form.bed_strength,
-              registered_with: form.registered_with,
-              registration_no: form.registration_no || null,
-              md_ceo_chairman: form.md_ceo_chairman,
-              designation: form.designation,
-              contact_no: form.contact_no,
-              profile: form.profile,
+              headers: { "Content-Type": "multipart/form-data" },
             }
           );
 
@@ -249,9 +265,10 @@ const HospitalSignIn = () => {
       }
 
       case 3: {
+        if (!serviceRef.current) return;
         const success =
-          serviceRef.current && (await serviceRef.current.handleSubmit());
-
+          serviceRef.current && (await serviceRef.current.handleSave());
+        console.log(success, "hj");
         if (success) {
           setPopup({
             show: true,
