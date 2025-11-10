@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./StepPopup.css";
 import successGif from "../../Animations/successfull-gif.gif";
 import { IoCloseCircleOutline } from "react-icons/io5";
@@ -9,8 +9,22 @@ import DownBadge from "../../Assets/down-badge.png";
 import WihanLogo from "../../Assets/wihan-success.png";
 import errorImg from "../../Animations/error-gif.gif";
 import { useNavigate } from "react-router-dom";
-const StepPopup = ({ step, message, error, onClose, onNext,userId }) => {
+
+const StepPopup = ({ step, message, error, onClose, onNext, userId, form }) => {
   const navigate = useNavigate();
+  const [profilePreview, setProfilePreview] = useState(null);
+
+  useEffect(() => {
+    if (form?.profile instanceof File) {
+      const objectUrl = URL.createObjectURL(form.profile);
+      setProfilePreview(objectUrl);
+      return () => URL.revokeObjectURL(objectUrl);
+    } else if (typeof form?.profile === "string") {
+      setProfilePreview(form.profile);
+    } else {
+      setProfilePreview(WihanLogo);
+    }
+  }, [form?.profile]);
   const renderStepContent = () => {
     switch (step) {
       case 0:
@@ -65,7 +79,11 @@ const StepPopup = ({ step, message, error, onClose, onNext,userId }) => {
             <h6 className="final-sub">Congratulations!</h6>
             <p className="popup-sub">You're officially a verified partner.</p>
             <div className="final-logo">
-              <img src={WihanLogo} alt="Wihan" />
+              {profilePreview ? (
+                <img src={profilePreview} alt="Wihan" />
+              ) : (
+                <img src={WihanLogo} alt="Wihan" />
+              )}
             </div>
             <div className="profile-summary">
               <h4>Profile Summary</h4>

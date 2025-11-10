@@ -65,7 +65,8 @@
   margin: 24px auto;
 }
 .sidebar-logo img {
-  width: 100px;
+  width: 80px;
+  object-fit: cover;
 }
 .sidebar-menu li {
   font-size: 0.9rem;

@@ -28,6 +28,7 @@ const BasicInformation = forwardRef(({ form, setForm }, ref) => {
       }
     }
   }, [form.profile]);
+
   useImperativeHandle(ref, () => ({
     validateBasicData: () => {
       let newErrors = {};

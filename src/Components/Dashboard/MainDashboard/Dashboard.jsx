@@ -73,6 +73,7 @@ const Dashboard = () => {
         isOpen={sidebarOpen}
         onMenuClick={setSelectedMenu}
         selectedMenu={selectedMenu}
+        userData={userData}
       />
       <div className={`content-area ${sidebarOpen ? "shifted" : ""}`}>
         <Navbar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />

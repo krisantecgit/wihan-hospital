@@ -178,7 +178,10 @@ const HospitalSignIn = () => {
           if (form.bed_strength)
             formDataToSend.append("bed_strength", Number(form.bed_strength));
           formDataToSend.append("registered_with", form.registered_with || "");
-          formDataToSend.append("registration_no", form.registration_no || null);
+          formDataToSend.append(
+            "registration_no",
+            form.registration_no || null
+          );
           formDataToSend.append("md_ceo_chairman", form.md_ceo_chairman || "");
           formDataToSend.append("designation", form.designation || "");
 
@@ -469,6 +472,7 @@ const HospitalSignIn = () => {
             onClose={retryStep}
             onNext={goToNextStep}
             userId={userId}
+            form={form}
           />
         )}
       </div>
