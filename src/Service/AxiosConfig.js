@@ -3,7 +3,7 @@ import axios from "axios";
 // Create an Axios instance
 const axiosInstance = axios.create({
   // baseURL: "http://192.168.0.241:9876/",
-  // baseURL: "https://api-staging.wihan.in/",
+  // baseURL: "https://api-staging./",
   baseURL: "https://api.wihan.in/",
 });
 
