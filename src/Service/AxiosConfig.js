@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const BASE_URL = "http://192.168.0.180:1234/"; 
-// const BASE_URL = "https://api-staging.wihan.in/";
+// const BASE_URL = "http://192.168.0.180:1234/"; 
+const BASE_URL = "https://api-staging.wihan.in/";
 // const BASE_URL = "https://api.wihan.in/";
  
 export const CURRENT_BASE_URL = BASE_URL;
