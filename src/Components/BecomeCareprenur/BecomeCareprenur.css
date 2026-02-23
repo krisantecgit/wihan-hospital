@@ -61,6 +61,14 @@
   color: var(--color-white);
   background-color: transparent;
 }
+.number-input::placeholder {
+  color: #DEDEDE;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: 0;
+}
 
 .bg-img-1 {
   background-image: url("../../Assets/img1.png");

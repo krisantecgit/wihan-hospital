@@ -1,17 +1,21 @@
 import axios from "axios";
 
-// Create an Axios instance
+const BASE_URL = "http://192.168.0.180:1234/"; 
+// const BASE_URL = "https://api-staging.wihan.in/";
+// const BASE_URL = "https://api.wihan.in/";
+ 
+export const CURRENT_BASE_URL = BASE_URL;
+
 const axiosInstance = axios.create({
-  // baseURL: "http://192.168.0.241:9876/",
-  // baseURL: "https://api-staging./",
-  baseURL: "https://api.wihan.in/",
+  baseURL: BASE_URL,
 });
 
-// Add a request interceptor to attach the token from localStorage
+// Attach token automatically
 axiosInstance.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token"); // Retrieve the token from localStorage
+  const token = localStorage.getItem("token");
+
   if (token) {
-    config.headers["Authorization"] = `Token ${token}`; // Add the token to the request headers
+    config.headers["Authorization"] = `Token ${token}`;
   }
 
   return config;

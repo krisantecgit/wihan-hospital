@@ -11,6 +11,7 @@ import Quality from "../Quality/Quality";
 import SupportStaff from "./SupportStaff";
 import axiosConfig from "../../Service/AxiosConfig";
 import { useAuth } from "../../Context/AuthContext";
+import { CURRENT_BASE_URL } from "../../Service/AxiosConfig";
 
 import "./HospitalSignIn.css";
 const HospitalSignIn = () => {
@@ -22,6 +23,8 @@ const HospitalSignIn = () => {
   const [mobile, setMobile] = useState(mobileno);
   const navigate = useNavigate();
   const [otp, setOtp] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [step, setStep] = useState(0);
   const [popup, setPopup] = useState({
     show: false,
@@ -344,6 +347,153 @@ const HospitalSignIn = () => {
     if (!valid) return;
   };
 
+  const getDashboardURL = (token, userId, hospitalId) => {
+    const base = CURRENT_BASE_URL ?? "";
+
+    let url = "";
+
+    if (base.includes("localhost") || base.includes("192.168")) {
+      url = "http://localhost:3001/login";
+    } else if (base.includes("staging")) {
+      url = "https://dashboard-staging.wihan.in/login";
+    } else {
+      url = "https://dashboard.wihan.in/login";
+    }
+
+    return `${url}?token=${token}&user_id=${userId}&hospital_id=${hospitalId}`;
+  };
+
+
+  const fetchHospitalId = async (userId) => {
+    try {
+      const res = await axiosConfig.get(
+        `/hospital/hospitals/?user=${userId}`
+      );
+
+      return res?.data?.results?.[0]?.id ?? null;
+    } catch (error) {
+      console.error("Hospital fetch failed", error);
+      return null;
+    }
+  };
+
+  const updateHospitalName = async (hospitalId, hospitalName) => {
+    try {
+      const res = await axiosConfig.patch(
+        `/hospital/hospitals/${hospitalId}/`,
+        {
+          name: hospitalName,
+        }
+      );
+
+      return true;
+    } catch (error) {
+      console.error("Hospital update failed", error);
+      return false;
+    }
+  };
+
+  const handleSubmit = async () => {
+    if (!mobile || mobile.length !== 10) {
+      setPopup({
+        show: true,
+        error: true,
+        message: "Enter valid mobile number",
+      });
+      return;
+      return;
+    }
+
+    if (!otp || otp.length < 4) {
+      setPopup({
+        show: true,
+        error: true,
+        message: "Enter valid OTP",
+      });
+      return; return;
+    }
+
+    if (!password || password !== confirmPassword) {
+      setPopup({
+        show: true,
+        error: true,
+        message: "Passwords do not match",
+      });
+      return; return;
+    }
+
+    try {
+      // 1️⃣ Verify OTP
+      const response = await axiosConfig.post(
+        "/accounts/verify_otp/",
+        {
+          mobileno: mobile,
+          otp,
+          password,
+          confirm_password: confirmPassword,
+        }
+      );
+
+      const userId = response?.data?.user_id ?? null;
+      const token = response?.data?.token ?? "";
+
+      if (!userId) {
+        setPopup({
+          show: true,
+          error: true,
+          message: "User ID not received",
+        });
+        return; return;
+      }
+
+      // 2️⃣ Fetch Hospital ID
+      const hospitalId = await fetchHospitalId(userId);
+
+      if (!hospitalId) {
+        setPopup({
+          show: true,
+          error: true,
+          message: "Hospital not found",
+        });
+        return;
+        return;
+      }
+
+      // 3️⃣ Update Hospital Name
+      const isUpdated = await updateHospitalName(
+        hospitalId,
+        form?.name ?? ""
+      );
+
+      if (!isUpdated) {
+        setPopup({
+          show: true,
+          error: true,
+          message: "Failed to update hospital name",
+        });
+        return; return;
+      }
+
+      console.log("Hospital Updated Successfully");
+
+      const dashboardURL = getDashboardURL(token, userId, hospitalId);
+
+      window.open(dashboardURL, "_blank", "noopener,noreferrer");
+
+      //  Everything successful here
+
+    } catch (error) {
+      setPopup({
+        show: true,
+        error: true,
+        message:
+          error?.response?.data?.message ??
+          "Verification failed",
+      });
+    }
+  };
+
+
   const goToNextStep = () => {
     if (popup.onNext) popup.onNext();
     setPopup({ ...popup, show: false });
@@ -355,35 +505,25 @@ const HospitalSignIn = () => {
     <>
       <Header />
       <div className="hospital-main-setup">
-        <HospitalBredcrumb />
+        {/* <HospitalBredcrumb /> */}
         <div className="bottom-container">
-          <div className="items-flex">
-            <h6>PROFILE SETUP</h6>
-            <strong>00 XP</strong>
-          </div>
-          <ProgressBar
-            completed={((step + 1) / totalSteps) * 100}
-            className="progress-bar"
-            bgColor="var(--color-blue)"
-            baseBgColor="#e0e0de"
-            height="12px"
-            isLabelVisible={false}
-            style={{ borderRadius: "8px", margin: "10px 0" }}
-          />
+
 
           <main
-            className={`hospital-form-box ${
-              step >= 1 ? "repetable-basic" : ""
-            }`}
+            className={`hospital-form-box ${step >= 1 ? "repetable-basic" : ""
+              }`}
           >
             {step === 0 && (
               <>
                 <h2>Let’s Get Started!</h2>
-                <form className="hospital-formfill">
+
+                <form className="hospital-formfill single-column">
+
                   <div className="hospital-group">
                     <label>Mobile Number</label>
                     <input
                       type="text"
+                      placeholder="+91 00000 00000"
                       value={mobile}
                       maxLength="10"
                       onChange={(e) =>
@@ -391,77 +531,67 @@ const HospitalSignIn = () => {
                       }
                     />
                   </div>
+
                   <div className="hospital-group">
-                    <label>
-                      OTP{" "}
-                      <button
-                        type="button"
-                        onClick={sendOtp}
-                        disabled={resendTimer > 0}
-                        className="resend"
-                      >
-                        {resendTimer > 0
-                          ? `Resend in ${resendTimer}s`
-                          : "Resend"}
-                      </button>
-                    </label>
+                    <label>Enter 4-digit OTP</label>
                     <input
-                      ref={otpInputRef}
                       type="text"
+                      placeholder="****"
                       value={otp}
                       maxLength="4"
                       onChange={(e) =>
                         setOtp(e.target.value.replace(/\D/g, ""))
                       }
                     />
-                    {otp.length > 0 && otp.length !== 4 && (
-                      <span className="otp-error">Enter 4-digit OTP</span>
-                    )}
                   </div>
+
+                  <div className="hospital-group">
+                    <label>
+                      Name of the Hospital<sup>*</sup>
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Name"
+                      value={form.name}
+                      onChange={(e) =>
+                        setForm({ ...form, name: e.target.value })
+                      }
+                    />
+                  </div>
+
+                  <div className="hospital-group">
+                    <label>
+                      Create Password <sup>*</sup>
+                    </label>
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />                  </div>
+
+                  <div className="hospital-group">
+                    <label>
+                      Re-enter Password <sup>*</sup>
+                    </label>
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                    />                  </div>
+
+                  <button type="button" className="submit-btn" onClick={handleSubmit}>
+                    Submit
+                  </button>
+
                 </form>
               </>
             )}
-            {step === 1 && (
-              <BasicInformation
-                ref={basicInfoRef}
-                form={form}
-                setForm={setForm}
-              />
-            )}
-            {step === 2 && (
-              <ContactInformation
-                ref={contactInfoRef}
-                form={form}
-                setForm={setForm}
-              />
-            )}
-            {step === 3 && (
-              <ServiceAvailable
-                ref={serviceRef}
-                form={form}
-                setForm={setForm}
-              />
-            )}
-            {step === 4 && (
-              <Quality ref={qualityRef} form={form} setForm={setForm} />
-            )}
-            {step === 5 && (
-              <SupportStaff ref={supportRef} form={form} setForm={setForm} />
-            )}
+
           </main>
 
-          <div className="hospital-buttons">
-            <button
-              className="previous"
-              onClick={() => setStep(step - 1)}
-              disabled={step === 0}
-            >
-              Previous
-            </button>
-            <button className="next" onClick={handleNext}>
-              {step === 5 ? "Finish" : step === 0 ? "Submit" : "Next"}
-            </button>
-          </div>
+
         </div>
 
         {popup.show && (

@@ -10,17 +10,33 @@ const BecomeCareprenur = ({ mobileInputRef }) => {
   const [error, setError] = useState("");
 
   const handleNavigate = () => {
-    if (!mobileno || mobileno.length !== 10) {
-      setError("Please enter a valid 10-digit mobile number");
+    if (!mobileno) {
+      setError("Please enter mobile number or email");
       return;
     }
+
+    if (!isValidInput(mobileno)) {
+      setError("Enter valid 10-digit mobile or valid email");
+      return;
+    }
+
     setError("");
     navigate("/hospital-signin", { state: { mobileno } });
     setMobileNo("");
   };
+
+
   function handleLinkClick() {
     window.scrollTo({ top: 400, behavior: "smooth" });
   }
+
+  const isValidInput = (value) => {
+    const phoneRegex = /^[0-9]{10}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    return phoneRegex.test(value) || emailRegex.test(value);
+  };
+
   return (
     <>
       <div className="bg-img-1">
@@ -58,21 +74,26 @@ const BecomeCareprenur = ({ mobileInputRef }) => {
               className="phone-input"
               style={{ border: error ? "1px solid red" : "" }}
             >
-              <span className="prefix">+91</span>
+              {/* <span className="prefix">+91</span>  */}
               <input
                 ref={mobileInputRef}
                 name="mobileno"
                 type="text"
-                inputMode="numeric"
-                maxLength={10}
+                placeholder="Enter Mobile / Mail"
                 className="number-input"
                 value={mobileno}
                 disabled={user_id}
                 onChange={(e) => {
-                  const onlyNums = e.target.value.replace(/[^0-9]/g, "");
-                  setMobileNo(onlyNums);
+                  const value = e.target.value.trim();
+                  setMobileNo(value);
+
+                  if (error) {
+                    setError(""); 
+                  }
                 }}
+
               />
+
             </div>
 
             <div>

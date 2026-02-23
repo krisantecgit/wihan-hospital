@@ -5,6 +5,7 @@ import { FiLogOut } from "react-icons/fi";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import "./Header.css";
 import { useAuth } from "../../Context/AuthContext";
+import { CURRENT_BASE_URL } from "../../Service/AxiosConfig";
 
 const Header = ({ scrollToMobile }) => {
   const { user_id, logout } = useAuth();
@@ -26,9 +27,22 @@ const Header = ({ scrollToMobile }) => {
     }
   };
 
-  const handleLoginClick = () => {
-    navigate("/");
-  };
+const handleLoginClick = () => {
+  let url = "";
+
+  if (CURRENT_BASE_URL.includes("staging")) {
+    url = "https://dashboard-staging.wihan.in/";
+  } else if (CURRENT_BASE_URL.includes("api.wihan.in")) {
+    url = "https://dashboard.wihan.in/login";
+  } else {
+    url = "http://localhost:3001/";
+  }
+
+  window.open(url, "_blank");
+};
+
+
+
   let profile_completed = localStorage.getItem("profile_completed");
 
 
