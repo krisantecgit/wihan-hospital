@@ -83,6 +83,7 @@ const BecomeCareprenur = ({ mobileInputRef }) => {
                 className="number-input"
                 value={mobileno}
                 disabled={user_id}
+                maxLength={10}
                 onChange={(e) => {
                   const value = e.target.value.trim();
                   setMobileNo(value);
